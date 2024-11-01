@@ -1,0 +1,11 @@
+.search {
+  padding: 6px;
+  width: 100%;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .search {
+    width: 600px;
+  }
+}
