@@ -1,11 +1,15 @@
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, deleteContact }) => {
   return (
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
-        <Contact key={id} name={name} number={number} />
+        <Contact
+          deleteContact={deleteContact}
+          key={id}
+          contacts={{ id, name, number }}
+        />
       ))}
     </ul>
   );

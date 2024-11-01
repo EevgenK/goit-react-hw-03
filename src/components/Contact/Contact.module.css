@@ -31,6 +31,7 @@
   cursor: pointer;
   background-color: var(--accent-color);
   color: var(--second-text-color);
+  transition: background-color var(--animation-mode);
   &:focus,
   &:hover {
     background-color: red;
