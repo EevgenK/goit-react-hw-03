@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "modern-normalize";
 import "./App.css";
 import ContactList from "./components/ContactList/ContactList";
@@ -13,12 +13,16 @@ function App() {
   ]);
   const [search, setSearch] = useState("");
 
+  const filteredContacts = contacts.filter(({ name, number }) => {
+    return name.toLowerCase().includes(search) || number.includes(search);
+  });
+
   return (
     <section>
       <div className="container">
         <h1 className="title">Phonebook</h1>
-        <ContactList contacts={contacts} />
-        <SearchBox search={setSearch} />
+        <ContactList contacts={!search ? contacts : filteredContacts} />
+        <SearchBox value={search} search={setSearch} />
       </div>
     </section>
   );
